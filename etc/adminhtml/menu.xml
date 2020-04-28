@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<!--
+	/**
+	 * @author Kashyap Team
+	 * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+	 * @package Kashyap_GoogleAnalytics
+	*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Kashyap_GoogleAnalytics::googleanalytics" title="Google Analytics" module="Kashyap_GoogleAnalytics" sortOrder="44" resource="Kashyap_GoogleAnalytics::googleanalytics"/>
+        <add id="Kashyap_GoogleAnalytics::settings" title="Settings" module="Kashyap_GoogleAnalytics" sortOrder="10" action="adminhtml/system_config/edit/section/googleanalytics" resource="Kashyap_GoogleAnalytics::settings" parent="Kashyap_GoogleAnalytics::googleanalytics"/>
+    </menu>
+</config>
