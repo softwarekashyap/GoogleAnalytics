@@ -11,7 +11,7 @@ Google Tag Manager (GTM) is a user-friendly, powerful and essential integration 
 ## Installation without composer
 * Download zip file of this extension
 * Place all the files of the extension in your Magento 2 installation in the folder `app/code/Kashyap/GoogleAnalytics`
-* Enable the extension: `php bin/magento --clear-static-content module:enable Kashyap_DeleteOrder`
+* Enable the extension: `php bin/magento --clear-static-content module:enable Kashyap_GoogleAnalytics`
 * Upgrade db scheme: `php bin/magento setup:upgrade`
 * Deply Static Content: `php bin/magento setup:static-content:deploy -f` Developer Mode
 * Deply Static Content: `php bin/magento setup:static-content:deploy` Production Mode
