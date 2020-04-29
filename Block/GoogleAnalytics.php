@@ -1,20 +1,16 @@
 <?php
 
-    /**
-     * @author Kashyap Team
-     * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
-     * @package Kashyap_GoogleAnalytics
-    */
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+ * @package Kashyap_GoogleAnalytics
+*/
 
 
 namespace Kashyap\GoogleAnalytics\Block;
 
-use Magento\Framework\View\Element\Template;
-use Magento\Framework\View\Element\Template\Context;
-use Kashyap\GoogleAnalytics\Helper\Data as HelperData;
-use Magento\Framework\ObjectManagerInterface;
 
-class GoogleAnalytics extends Template
+class GoogleAnalytics extends \Magento\Framework\View\Element\Template 
 {
 	protected $helperData;
 	protected $objectFactory;
@@ -25,9 +21,9 @@ class GoogleAnalytics extends Template
 
 
 	public function __construct(
-		Context $context,
-		HelperData $helperData,
-		ObjectManagerInterface $objectManager,
+		\Magento\Framework\View\Element\Template\Context $context,
+		\Kashyap\GoogleAnalytics\Helper\Data $helperData,
+		\Magento\Framework\ObjectManagerInterface $objectManager,
 		\Magento\Checkout\Model\Session $checkoutSession,
 		array $data = []
 	)
@@ -39,7 +35,7 @@ class GoogleAnalytics extends Template
 		parent::__construct($context, $data);
 	}
 
-	public function getHelper()
+	public function getHelperObject()
 	{
 		return $this->helperData;
 	}
@@ -92,7 +88,7 @@ class GoogleAnalytics extends Template
 	public function getOrderItems()
 	{
 		/** @Magento/Sales/Model/Order/Items */
-		return $this->getOrder()->getAllItems();
+		return $this->getOrder()->getAllVisibleItems();
 	}
 
 

@@ -8,9 +8,7 @@
 
 namespace Kashyap\GoogleAnalytics\Helper;
 
-use Kashyap\Core\Helper\AbstractData;
-
-class Data extends AbstractData
+class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
 	const XML_PATH_GENERAL_ENABLED = 'googleanalytics/general/is_enabled';
 	const XML_PATH_GENERAL_MAIN_TRACKING = 'googleanalytics/general/tracking_id';
@@ -19,34 +17,40 @@ class Data extends AbstractData
 	const XML_PATH_GENERAL_IP_ANONYMIZATION = 'googleanalytics/general/ip_anonymization';
 	const XML_PATH_GENERAL_DEBUG = 'googleanalytics/general/debug';
 
-	public function isEnabled($storeId = null)
+    public function __construct(
+        \Magento\Framework\App\Helper\Context $context
+    ) {
+        parent::__construct($context);
+    }
+    
+	public function isEnabled()
 	{
-		return $this->getConfigValue(self::XML_PATH_GENERAL_ENABLED, $storeId);
+		return $this->scopeConfig->getValue(self::XML_PATH_GENERAL_ENABLED, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
 
 	}
 
-	public function getMainTracking($storeId = null)
+	public function getMainTracking()
 	{
-		return $this->getConfigValue(self::XML_PATH_GENERAL_MAIN_TRACKING, $storeId);
+		return $this->scopeConfig->getValue(self::XML_PATH_GENERAL_MAIN_TRACKING, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
 	}
 
-	public function getSecondTracking($storeId = null)
+	public function getSecondTracking()
 	{
-		return $this->getConfigValue(self::XML_PATH_GENERAL_SECOND_TRACKING, $storeId);
+		return $this->scopeConfig->getValue(self::XML_PATH_GENERAL_SECOND_TRACKING, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
 	}
 
-	public function getLinkAttribution($storeId = null)
+	public function getLinkAttribution()
 	{
-		return $this->getConfigValue(self::XML_PATH_GENERAL_LINK_ATTRIBUTION, $storeId);
+		return $this->scopeConfig->getValue(self::XML_PATH_GENERAL_LINK_ATTRIBUTION, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
 	}
 
-	public function getIpAnonymization($storeId = null)
+	public function getIpAnonymization()
 	{
-		return $this->getConfigValue(self::XML_PATH_GENERAL_IP_ANONYMIZATION, $storeId);
+		return $this->scopeConfig->getValue(self::XML_PATH_GENERAL_IP_ANONYMIZATION, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
 	}
 
-	public function getDebug($storeId = null)
+	public function getDebug()
 	{
-		return $this->getConfigValue(self::XML_PATH_GENERAL_DEBUG, $storeId);
+		return $this->scopeConfig->getValue(self::XML_PATH_GENERAL_DEBUG, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
 	}
 }
